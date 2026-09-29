@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5ef">
+  <title>Hangul Listening Cards</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header>
+      <p class="eyebrow">Hangul review</p>
+      <h1>Listen, look, and repeat.</h1>
+      <p class="intro">Study the cards, then test your listening with a 12 question quiz.</p>
+    </header>
+    <div class="modes" aria-label="Study mode">
+      <button id="cards-mode" type="button" aria-pressed="true">Flashcards</button>
+      <button id="quiz-mode" type="button" aria-pressed="false">Listening quiz</button>
+    </div>
+    <div id="flashcards">
+    <nav class="sections" aria-label="Card sections"></nav>
+    <section class="study" aria-label="Flashcard">
+      <div class="card" aria-live="polite">
+        <div class="card-top"><span id="section-label"></span><span id="position"></span></div>
+        <div class="character" id="character" lang="ko"></div>
+        <p class="card-hint" id="hint"></p>
+      </div>
+      <div class="controls">
+        <button id="previous" class="secondary" type="button">← Previous</button>
+        <button id="play" class="primary" type="button">▶ Hear it</button>
+        <button id="next" class="secondary" type="button">Next →</button>
+      </div>
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+    </section>
+    </div>
+    <section id="quiz" class="quiz" aria-label="Listening quiz" hidden>
+      <div id="quiz-start" class="quiz-panel">
+        <h2>Listening quiz</h2>
+        <p>Hear a recording and choose the matching Hangul. You’ll get four questions each from Vowels, Consonants in CV Syllables, and CVC Syllables.</p>
+        <button id="start-quiz" class="action" type="button">Start 12 question quiz</button>
+      </div>
+      <div id="quiz-question" class="quiz-panel" hidden>
+        <div class="card-top"><span id="quiz-section"></span><span id="quiz-progress"></span></div>
+        <h2>Which character do you hear?</h2>
+        <button id="quiz-play" class="action" type="button">▶ Play sound</button>
+        <div id="choices" class="choices" role="group" aria-label="Answer choices"></div>
+        <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+        <button id="quiz-next" class="action next-question" type="button" hidden>Next question →</button>
+      </div>
+      <div id="quiz-result" class="quiz-panel" hidden>
+        <h2>Quiz complete</h2>
+        <p id="score"></p>
+        <button id="restart-quiz" class="action" type="button">Try another quiz</button>
+      </div>
+    </section>
+    <footer>Recorded pronunciation · 70 cards</footer>
+  </main>
+  <script src="quiz.js" defer></script>
+</body>
+</html>
